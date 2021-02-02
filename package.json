@@ -1,0 +1,13 @@
+{
+  "name": "data-visualization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "rollup": "^2.38.3"
+  }
+}
