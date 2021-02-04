@@ -1,11 +1,21 @@
-import { nodeResolve } from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
 
 export default {
   input: "makeFace/src/index.js",
-  plugins: [nodeResolve()],
+  plugins: [
+    babel({
+      babelHelpers: "bundled",
+      exclude: "node_modules/**",
+      presets: ["@babel/preset-react"],
+    }),
+  ],
   output: {
     file: "makeFaceDist/dist/index.js",
+    globals: {
+      react: "React",
+      "react-dom": "ReactDOM",
+    },
     format: "umd",
   },
-  external: ["react"],
+  external: ["react", "react-dom"],
 };
