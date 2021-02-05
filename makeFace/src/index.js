@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { arc } from "d3";
 
 const width = 960;
 const height = 500;
@@ -8,20 +9,29 @@ const centerY = height / 2;
 const strokeWidth = 20;
 const eyeOffsetX = 90;
 const eyeOffsetY = 100;
-const eyeRadius = 50;
+const eyeRadius = 40;
+const mouthWidth = 20;
+const mouthRadius = 160;
+
+const mouthArc = arc() // constructor function
+  .innerRadius(mouthRadius)
+  .outerRadius(mouthRadius + 20)
+  .startAngle(Math.PI / 2)
+  .endAngle(Math.PI * (3 / 2)); //method chaining
 
 const App = () => (
   <svg width={width} height={height}>
-    <circle
-      cx={centerX}
-      cy={centerY}
-      r={centerY - strokeWidth / 2}
-      fill="yellow"
-      stroke="black"
-      stroke-width={strokeWidth}
-    />
-    <circle cx={centerX - eyeOffsetX} cy={centerY - eyeOffsetY} r={eyeRadius} />
-    <circle cx={centerX + eyeOffsetX} cy={centerY - eyeOffsetY} r={eyeRadius} />
+    <g transform={`translate(${centerX},${centerY})`}>
+      <circle
+        r={centerY - strokeWidth / 2}
+        fill="yellow"
+        stroke="black"
+        stroke-width={strokeWidth}
+      />
+      <circle cx={-eyeOffsetX} cy={-eyeOffsetY} r={eyeRadius} />
+      <circle cx={eyeOffsetX} cy={-eyeOffsetY} r={eyeRadius} />
+      <path d={mouthArc()} />
+    </g>
   </svg>
 );
 
