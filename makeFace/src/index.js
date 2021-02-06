@@ -13,21 +13,20 @@ const eyeRadius = 40;
 const mouthWidth = 20;
 const mouthRadius = 160;
 
+const BackgroundCircle = ({ radius }) => (
+  <circle r={radius} fill="yellow" stroke="black" stroke-width={strokeWidth} />
+);
+
 const mouthArc = arc() // constructor function
   .innerRadius(mouthRadius)
-  .outerRadius(mouthRadius + 20)
+  .outerRadius(mouthRadius + mouthWidth)
   .startAngle(Math.PI / 2)
   .endAngle(Math.PI * (3 / 2)); //method chaining
 
 const App = () => (
   <svg width={width} height={height}>
     <g transform={`translate(${centerX},${centerY})`}>
-      <circle
-        r={centerY - strokeWidth / 2}
-        fill="yellow"
-        stroke="black"
-        stroke-width={strokeWidth}
-      />
+      <BackgroundCircle radius={centerY - strokeWidth / 2} />
       <circle cx={-eyeOffsetX} cy={-eyeOffsetY} r={eyeRadius} />
       <circle cx={eyeOffsetX} cy={-eyeOffsetY} r={eyeRadius} />
       <path d={mouthArc()} />
