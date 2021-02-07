@@ -1,7 +1,7 @@
 import babel from "@rollup/plugin-babel";
 
 export default {
-  input: "makeFace/src/index.js",
+  input: "src/index.js",
   plugins: [
     babel({
       babelHelpers: "bundled",
@@ -10,7 +10,7 @@ export default {
     }),
   ],
   output: {
-    file: "makeFaceDist/dist/index.js",
+    file: "dist/index.js",
     globals: {
       react: "React",
       "react-dom": "ReactDOM",
