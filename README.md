@@ -2,4 +2,6 @@
 
 Data visualization with JS
 
-### makeFace
+### makeFaces
+
+### cssNamedColor
