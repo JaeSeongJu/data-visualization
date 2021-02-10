@@ -4,29 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loading and Parsing CSV Data</title>
+    <script src="https://unpkg.com/d3@6.5.0/dist/d3.min.js"></script>
+    <style>
+      pre {
+        font-size: 5em;
+      }
+    </style>
   </head>
   <body>
+    <pre id="message-container"></pre>
     <script>
+      const csvUrl =
+        "https://gist.githubusercontent.com/JooJaeSeong/6ac67dadd2cf241001e7ce087228344b/raw/cssNamedColor.csv";
+
+      d3.csv(csvUrl).then((data) => {
+        let message = "";
+        message =
+          message + Math.round(d3.csvFormat(data).length / 1024) + "kB\n";
+        message = message + data.length + "rows\n";
+        message = message + data.columns.length + "columns";
+        document.getElementById("message-container").textContent = message;
+      }); // unparsing rather formatting with d3 -> preferable and more concise
+
+      // fetch , async, and await
+      /*
       const fetchText = async (url) => {
         const response = await fetch(url);
         return await response.text();
       };
-
-      const csvUrl =
-        "https://gist.githubusercontent.com/JooJaeSeong/6ac67dadd2cf241001e7ce087228344b/raw/cssNamedColor.csv";
-
       fetchText(csvUrl).then((text) => {
-        console.log(text);
+        const data = d3.csvParse(text);
+        let message = "";
+        message = message + Math.round(text.length / 1024) + "kB\n";
+        message = message + data.length + "rows\n";
+        message = message + data.columns.length + "columns\n";
+        document.getElementById("message-container").textContent = message;
       });
+      */
 
       /*
-      const promise = fetch(url);
-      promise.then((response) => {
-        response.text().then((text) => {
-          console.log(text);
-        });
-      }); // pyramid of Dodm caused by callback
-    */
+        const promise = fetch(url);
+        promise.then((response) => {
+          response.text().then((text) => {
+            console.log(text);
+          });
+        }); // pyramid of Doom caused by callback
+      */
     </script>
   </body>
 </html>
