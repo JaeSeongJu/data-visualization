@@ -14,9 +14,8 @@ export default {
     globals: {
       react: "React",
       "react-dom": "ReactDOM",
-      d3: "d3",
     },
     format: "umd",
   },
-  external: ["react", "react-dom", "d3"],
+  external: ["react", "react-dom"],
 };
