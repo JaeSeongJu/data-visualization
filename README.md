@@ -9,3 +9,7 @@ Data visualization with JS
 ### makeFaces2
 
 ### getData-React
+
+### barChart
+
+### Refactoring barChart
