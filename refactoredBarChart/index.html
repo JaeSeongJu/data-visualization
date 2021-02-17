@@ -3,13 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Refactored Bar Chart</title>
+    <title>Refactored Bar Chart & Stylizing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
+        font-family: 'Newsreader', serif;
       }
       pre {
         font-size: 5em;
+      }
+      .tick line {
+        stroke: #C0C0BB;
+      }
+      .tick text {
+        fill: #635F5D;
+      }
+      .mark {
+        fill: #137B80;
+      }
+      .axis-label{
+        font-size: 2.5em;
+        fill: #635F5D;
       }
     </style>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
