@@ -13,3 +13,5 @@ Data visualization with JS
 ### barChart
 
 ### Refactoring barChart
+
+### Scatter plot
