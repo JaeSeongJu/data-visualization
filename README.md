@@ -17,3 +17,5 @@ Data visualization with JS
 ### Scatter plot
 
 ### lineChart
+
+### worldMap
